@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <title>签到成功</title>
+    </head>
+
+    <body>
+
+        <div>
+            亲爱的<span th:text="${userName}"></span>：
+            <br>
+            &nbsp;&nbsp;系统于<span th:text="${execTime}"></span>执行了签到...
+            <br>
+            &nbsp;&nbsp;签到结果：<span th:text="${execDetail}"></span>
+        </div>
+
+    </body>
+</html>
