@@ -42,7 +42,7 @@ host:
    admin: http://localhost:8080
 
 python:
-  path: D:\BaiduNetdiskDownload\checkin-helper\main.py
+  path: D:\idea\python\checkin-helper\main.py
 
 
 

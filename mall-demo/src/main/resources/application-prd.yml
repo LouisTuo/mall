@@ -42,7 +42,7 @@ host:
    admin: http://localhost:8080
 
 python:
-  path: /usr/local/py/python/main.py
+  path: /opt/mall/lenovo/py/checkin-helper/main.py
 
 
 
