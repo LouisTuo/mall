@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crazy.demo.gencoode.mapper.DemoMapper">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into DEMO  (id,name,key_word,punch_time,salary_money,bonus_money,sex,age,birthday,email,content,create_by,create_time,update_by,update_time,sys_org_code)  values(  #{id} , #{name} , #{key_word} , #{punch_time} , #{salary_money} , #{bonus_money} , #{sex} , #{age} , #{birthday} , #{email} , #{content} , #{create_by} , #{create_time} , #{update_by} , #{update_time} , #{sys_org_code} )
+    </insert>
+
+    <delete id="delete">
+        delete from DEMO where id = #{id};
+    </delete>
+
+    <update id="update">
+        update DEMO set id= #{id},name= #{name},key_word= #{keyWord},punch_time= #{punchTime},salary_money= #{salaryMoney},bonus_money= #{bonusMoney},sex= #{sex},age= #{age},birthday= #{birthday},email= #{email},content= #{content},create_by= #{createBy},create_time= #{createTime},update_by= #{updateBy},update_time= #{updateTime},sys_org_code= #{sysOrgCode} where id = #{id}
+    </update>
+
+    <select id="select" resultType="com.crazy.demo.gencoode.mapper.Demo">
+        select id,name,key_word,punch_time,salary_money,bonus_money,sex,age,birthday,email,content,create_by,create_time,update_by,update_time,sys_org_code from DEMO where id = #{id}
+    </select>
+
+
+</mapper>

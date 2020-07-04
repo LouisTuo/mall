@@ -17,6 +17,8 @@
         <module>mall-admin</module>
         <module>mall-search</module>
         <module>mall-portal</module>
+
+        <module>gen-coode</module>
     </modules>
 
     <parent>

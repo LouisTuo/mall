@@ -2,6 +2,9 @@ package com.macro.mall.demo.controller;
 
 import com.macro.mall.common.api.CommonPage;
 import com.macro.mall.common.api.CommonResult;
+import com.macro.mall.common.utils.FileUtil;
+import com.macro.mall.common.utils.UuidUtil;
+import com.macro.mall.common.utils.ZipUtil;
 import com.macro.mall.demo.dto.PmsBrandDto;
 import com.macro.mall.demo.service.DemoService;
 import com.macro.mall.model.PmsBrand;
@@ -11,10 +14,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ResourceUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -57,8 +65,8 @@ public class DemoController {
     @ApiOperation(value = "更新品牌")
     @RequestMapping(value = "/brand/update/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult updateBrand(@PathVariable("id") Long id, @Validated @RequestBody PmsBrandDto pmsBrandDto,BindingResult result) {
-        if(result.hasErrors()){
+    public CommonResult updateBrand(@PathVariable("id") Long id, @Validated @RequestBody PmsBrandDto pmsBrandDto, BindingResult result) {
+        if (result.hasErrors()) {
             return CommonResult.validateFailed(result.getFieldError().getDefaultMessage());
         }
         CommonResult commonResult;
@@ -101,5 +109,30 @@ public class DemoController {
     @ResponseBody
     public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {
         return CommonResult.success(demoService.getBrand(id));
+    }
+
+    @ApiOperation("下载")
+    @GetMapping("/downloadSDK")
+    public void download(HttpServletResponse response) throws FileNotFoundException {
+
+
+        List<File> fileList = Arrays.asList(
+                new File("D:\\idea\\mall\\mall-demo\\src\\main\\resources\\codeTemplate\\doc\\cn-hangzhou"), //
+                new File("D:\\idea\\mall\\mall-demo\\src\\main\\resources\\codeTemplate\\lib"), //
+                new File("D:\\idea\\mall\\mall-demo\\src\\main\\resources\\codeTemplate\\Readme.en.md") //
+        );
+
+        String rootPath = ResourceUtils.getURL("classpath:").getPath();
+        String uuid = UuidUtil.getUuid();
+        String fileName = "demo.zip";
+
+        String zipFilePath = rootPath + uuid + File.separator + fileName;
+
+        File file = ZipUtil.genZipFile(fileList, zipFilePath);
+
+
+        FileUtil.downloadFile(response, file);
+
+        cn.hutool.core.io.FileUtil.del(file.getParentFile());
     }
 }
