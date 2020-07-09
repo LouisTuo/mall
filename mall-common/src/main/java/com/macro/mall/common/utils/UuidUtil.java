@@ -1,5 +1,9 @@
 package com.macro.mall.common.utils;
 
+import cn.hutool.core.collection.CollectionUtil;
+
+import java.util.ArrayList;
+import java.util.Locale;
 import java.util.UUID;
 
 /**
@@ -9,6 +13,13 @@ import java.util.UUID;
  */
 public class UuidUtil {
     public static String getUuid() {
-        return UUID.randomUUID().toString().replace("-", "");
+        return UUID.randomUUID().toString().replace("-", "").toLowerCase(Locale.ENGLISH);
+    }
+
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        boolean empty = CollectionUtil.isEmpty(list);
+        System.out.println(empty);
+        //String s = list.get(0);
     }
 }

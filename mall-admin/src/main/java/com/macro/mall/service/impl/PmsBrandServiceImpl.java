@@ -100,7 +100,7 @@ public class PmsBrandServiceImpl implements PmsBrandService {
     }
 
     @Override
-    public int updateFactoryStatus(List<Long> ids, Integer factoryStatus) {
+    public int updateFactoryStatus(List<Long> ids, String factoryStatus) {
         PmsBrand pmsBrand = new PmsBrand();
         pmsBrand.setFactoryStatus(factoryStatus);
         PmsBrandExample pmsBrandExample = new PmsBrandExample();

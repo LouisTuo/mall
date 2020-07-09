@@ -11,7 +11,7 @@
 
     <modules>
         <module>mall-common</module>
-        <module>mall-mbg</module>
+        <module>mall-mybatis-generator</module>
         <module>mall-security</module>
         <module>mall-demo</module>
         <module>mall-admin</module>
@@ -92,7 +92,7 @@
             <!--mall中MBG生成模块-->
             <dependency>
                 <groupId>com.macro.mall</groupId>
-                <artifactId>mall-mbg</artifactId>
+                <artifactId>mall-mybatis-generator</artifactId>
                 <version>${mall-mbg.version}</version>
             </dependency>
             <!--mall安全模块-->

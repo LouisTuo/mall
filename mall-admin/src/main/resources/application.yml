@@ -10,6 +10,8 @@ mybatis:
   mapper-locations:
     - classpath:dao/*.xml
     - classpath*:com/**/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 控制台打印sql
 
 jwt:
   tokenHeader: Authorization #JWT存储的请求头
@@ -44,6 +46,7 @@ secure:
       - /admin/info
       - /admin/logout
       - /minio/upload
+      - /brand/**
 
 aliyun:
   oss:

@@ -1,8 +1,13 @@
 package com.macro.mall.model;
 
+import com.macro.mall.common.annotations.AutoSetProperty;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import springfox.documentation.service.ApiListing;
+
 import java.io.Serializable;
 
+@Data
 public class PmsBrand implements Serializable {
     private Long id;
 
@@ -14,7 +19,10 @@ public class PmsBrand implements Serializable {
     private Integer sort;
 
     @ApiModelProperty(value = "是否为品牌制造商：0->不是；1->是")
-    private Integer factoryStatus;
+    private String factoryStatus;
+
+    @AutoSetProperty(group = "mall_00001", sourceField = "factoryStatus")
+    private String factoryStatusDesc;
 
     private Integer showStatus;
 
@@ -65,14 +73,6 @@ public class PmsBrand implements Serializable {
 
     public void setSort(Integer sort) {
         this.sort = sort;
-    }
-
-    public Integer getFactoryStatus() {
-        return factoryStatus;
-    }
-
-    public void setFactoryStatus(Integer factoryStatus) {
-        this.factoryStatus = factoryStatus;
     }
 
     public Integer getShowStatus() {

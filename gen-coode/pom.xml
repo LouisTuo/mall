@@ -23,7 +23,7 @@
 
         <dependency>
             <groupId>com.macro.mall</groupId>
-            <artifactId>mall-mbg</artifactId>
+            <artifactId>mall-mybatis-generator</artifactId>
         </dependency>
 
         <dependency>

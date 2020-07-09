@@ -55,5 +55,5 @@ public interface PmsBrandService {
     /**
      * 修改厂家制造商状态
      */
-    int updateFactoryStatus(List<Long> ids, Integer factoryStatus);
+    int updateFactoryStatus(List<Long> ids, String factoryStatus);
 }

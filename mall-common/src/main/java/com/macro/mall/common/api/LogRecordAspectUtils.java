@@ -72,6 +72,7 @@ public class LogRecordAspectUtils {
     // 通知(环绕)
     @Around("executeService()")
     public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
+        log.info("\n ------------监听开始------------ \n");
         HttpServletRequest request = getRequest();
         String method = request.getMethod();
         String queryString = request.getQueryString();
@@ -100,7 +101,7 @@ public class LogRecordAspectUtils {
     // 执行点以后
     @After("executeService()")
     public void executeAfter() {
-        log.info("\n ------------------------ \n");
+        log.info("\n ------------监听结束------------ \n");
     }
 
 }

@@ -121,7 +121,7 @@ public class PmsBrandController {
     @RequestMapping(value = "/update/factoryStatus", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateFactoryStatus(@RequestParam("ids") List<Long> ids,
-                                      @RequestParam("factoryStatus") Integer factoryStatus) {
+                                      @RequestParam("factoryStatus") String factoryStatus) {
         int count = brandService.updateFactoryStatus(ids, factoryStatus);
         if (count > 0) {
             return CommonResult.success(count);

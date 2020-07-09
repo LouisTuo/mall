@@ -14,6 +14,7 @@ import java.util.List;
  * Created by macro on 2018/4/26.
  */
 public class Generator {
+
     public static void main(String[] args) throws Exception {
         //MBG 执行过程中的警告信息
         List<String> warnings = new ArrayList<String>();
